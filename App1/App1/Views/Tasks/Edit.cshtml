@@ -1,0 +1,98 @@
+﻿@model App1.Models.Task
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Редактировать</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Задание</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.Complexity, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Complexity, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Complexity, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.Worker_Id, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Worker_Id, ViewBag.Workers as SelectList, htmlAttributes: new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.Project_Id, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Project_Id, ViewBag.Projects as SelectList, htmlAttributes: new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.CheckBoxFor(model => model.Status)
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.Begin_Data, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Begin_Data, htmlAttributes: new { @class = "form-control", min = "2018-12-05" })
+            @Html.ValidationMessageFor(model => model.Begin_Data, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.Deadline_Data, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Deadline_Data, htmlAttributes: new { @class = "form-control", min = "2018-12-05" })
+            @Html.ValidationMessageFor(model => model.Deadline_Data, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Сохранить" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Вернуться к списку", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

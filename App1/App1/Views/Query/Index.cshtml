@@ -1,0 +1,33 @@
+﻿@using App1.Models
+@using System.Data;
+@using System.Data.Entity;
+@{
+
+   
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+    </p>
+    <p>
+    </p>
+    <form method="get" class="form-inline my-2 my-lg-0">
+        @Html.TextBox("selectQueryString", "", new { @class = "form-control", style = "width: 400px;" }) &nbsp; &nbsp;
+        <input type="submit" value="SQL" class="btn btn-info" />
+    </form>
+
+    <div id="grid">
+        @ViewBag.Grid.GetHtml()
+    </div>
+    <div>
+        @DateTime.Now
+    </div>
+</body>
+</html>

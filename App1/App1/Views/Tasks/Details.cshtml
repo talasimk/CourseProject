@@ -1,0 +1,82 @@
+﻿@model App1.Models.Task
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Подробнее</h2>
+
+<div>
+    <h4>Задание</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Complexity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Complexity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Worker_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Worker.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Project_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Begin_Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Begin_Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deadline_Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deadline_Data)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.Id }, new { @class = "btn btn-warning" }) 
+    @Html.ActionLink("Вернуться к списку", "Index", new { @class = "btn btn-success" })
+</p>

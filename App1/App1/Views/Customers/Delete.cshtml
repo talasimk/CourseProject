@@ -1,0 +1,64 @@
+﻿@model App1.Models.Customer
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы уверены, что хотите удалить этого заказчика?</h3>
+<div>
+    <h4>Заказчик</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Representative)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Representative)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone_Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone_Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться к списку", "Index")
+        </div>
+    }
+</div>
